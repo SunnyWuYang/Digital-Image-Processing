@@ -16,7 +16,9 @@ b = img[:,:,2]
 
 ## H,S,I通道
 
-<img src="http://chart.googleapis.com/chart?cht=tx&chl= I=\frac{1}{3}(R+G+B)" style="border:none;">
+<img src="http://chart.googleapis.com/chart?cht=tx&chl= I=\frac{1}{3}(R&plusG+B)" style="border:none;">
+
+<img src="http://www.forkosh.com/mathtex.cgi? I=\frac{1}{3}(R+G+B)">
 $$
 I=\frac{1}{3}(R+G+B)
 $$
