@@ -18,7 +18,6 @@ b = img[:,:,2]
 
 <img src="http://chart.googleapis.com/chart?cht=tx&chl= I=\frac{1}{3}(R&plusG+B)" style="border:none;">
 
-<img src="http://www.forkosh.com/mathtex.cgi? I=\frac{1}{3}(R+G+B)">
 $$
 I=\frac{1}{3}(R+G+B)
 $$
@@ -38,6 +37,7 @@ $$
 $$
 \theta=arccos\left \{ \frac{\frac{1}{2}[(R-G)+(R-B)]}{[(R-G)^2+(R-B)(G-B)]^\frac{1}{2}} \right \}
 $$
+<a href="https://www.codecogs.com/eqnedit.php?latex=\theta=arccos\left&space;\{&space;\frac{\frac{1}{2}[(R-G)&plus;&space;(R-B)]}{[(R-G)^2&plus;(R-B)(G-B)]^\frac{1}{2}}&space;\right&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\theta=arccos\left&space;\{&space;\frac{\frac{1}{2}[(R-G)&plus;&space;(R-B)]}{[(R-G)^2&plus;(R-B)(G-B)]^\frac{1}{2}}&space;\right&space;\}" title="\theta=arccos\left \{ \frac{\frac{1}{2}[(R-G)+ (R-B)]}{[(R-G)^2+(R-B)(G-B)]^\frac{1}{2}} \right \}" /></a>
 
 ```python
 # 参考：https://github.com/SVLaursen/Python-RGB-to-HSI/blob/master/converter.py
