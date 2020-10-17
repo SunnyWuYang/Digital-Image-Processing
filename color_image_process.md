@@ -16,27 +16,13 @@ b = img[:,:,2]
 
 ## H,S,I通道
 
-<img src="http://chart.googleapis.com/chart?cht=tx&chl= I=\frac{1}{3}(R&plusG+B)" style="border:none;">
+<a href="https://www.codecogs.com/eqnedit.php?latex=I=\frac{1}{3}(R&plus;G&plus;B)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?I=\frac{1}{3}(R&plus;G&plus;B)" title="I=\frac{1}{3}(R+G+B)" /></a>
 
-$$
-I=\frac{1}{3}(R+G+B)
-$$
+<a href="https://www.codecogs.com/eqnedit.php?latex=S=1-\frac{3}{R&plus;G&plus;B}[min(R,G,B)]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?S=1-\frac{3}{R&plus;G&plus;B}[min(R,G,B)]" title="S=1-\frac{3}{R+G+B}[min(R,G,B)]" /></a>
 
-$$
-S=1-\frac{3}{R+G+B}[min(R,G,B)]
-$$
-
-$$
-H=\begin{cases}
- \theta &  B\leqslant G \\ 
- 360^{\circ}-\theta & B> G 
-\end{cases}
-$$
+<a href="https://www.codecogs.com/eqnedit.php?latex=H=\begin{cases}&space;\theta&space;&&space;B\leqslant&space;G&space;\\&space;360^{\circ}-\theta&space;&&space;B>&space;G&space;\end{cases}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?H=\begin{cases}&space;\theta&space;&&space;B\leqslant&space;G&space;\\&space;360^{\circ}-\theta&space;&&space;B>&space;G&space;\end{cases}" title="H=\begin{cases} \theta & B\leqslant G \\ 360^{\circ}-\theta & B> G \end{cases}" /></a>
 
 式中
-$$
-\theta=arccos\left \{ \frac{\frac{1}{2}[(R-G)+(R-B)]}{[(R-G)^2+(R-B)(G-B)]^\frac{1}{2}} \right \}
-$$
 <a href="https://www.codecogs.com/eqnedit.php?latex=\theta=arccos\left&space;\{&space;\frac{\frac{1}{2}[(R-G)&plus;&space;(R-B)]}{[(R-G)^2&plus;(R-B)(G-B)]^\frac{1}{2}}&space;\right&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\theta=arccos\left&space;\{&space;\frac{\frac{1}{2}[(R-G)&plus;&space;(R-B)]}{[(R-G)^2&plus;(R-B)(G-B)]^\frac{1}{2}}&space;\right&space;\}" title="\theta=arccos\left \{ \frac{\frac{1}{2}[(R-G)+ (R-B)]}{[(R-G)^2+(R-B)(G-B)]^\frac{1}{2}} \right \}" /></a>
 
 ```python
