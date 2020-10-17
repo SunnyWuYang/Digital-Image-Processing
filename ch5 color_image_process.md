@@ -18,19 +18,23 @@ b = img[:,:,2]
 $$
 I=\frac{1}{3}(R+G+B)
 $$
+
 $$
 S=1-\frac{3}{R+G+B}[min(R,G,B)]
 $$
+
 $$
 H=\begin{cases}
  \theta &  B\leqslant G \\ 
  360^{\circ}-\theta & B> G 
 \end{cases}
 $$
+
 式中
 $$
 \theta=arccos\left \{ \frac{\frac{1}{2}[(R-G)+(R-B)]}{[(R-G)^2+(R-B)(G-B)]^\frac{1}{2}} \right \}
 $$
+
 ```python
 # 参考：https://github.com/SVLaursen/Python-RGB-to-HSI/blob/master/converter.py
 #Calculate Intensity
@@ -92,6 +96,7 @@ plt.show()
 <p align="center">
   <img src="images/hsi_result.png">
 </p>
+
 ## 伪彩色映射
 在RGB彩色空间中表示一副单色图像且对结果分量分别映射时，变换结果是一副伪彩色图像。其方程形式为：
 $$s_i=T_i(r),i=1,2,...,n$$
@@ -108,6 +113,7 @@ $$s_i=T_i(r),i=1,2,...,n$$
 <p align="center">
   <img src="images/weld_original.png">
 </p>
+
 ### Matlab重现
 在matlab中，输入以下命令，可得到一副图像窗口与交互式编辑窗口
 ```matlab
