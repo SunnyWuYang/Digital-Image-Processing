@@ -15,25 +15,19 @@ b = img[:,:,2]
 ```
 
 ## H,S,I通道
-$$
-I=\frac{1}{3}(R+G+B)
-$$
-
-$$
-S=1-\frac{3}{R+G+B}[min(R,G,B)]
-$$
-
-$$
-H=\begin{cases}
- \theta &  B\leqslant G \\ 
- 360^{\circ}-\theta & B> G 
-\end{cases}
-$$
-
+<p align="center">
+<a href="https://www.codecogs.com/eqnedit.php?latex=I=\frac{1}{3}(R&plus;G&plus;B)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?I=\frac{1}{3}(R&plus;G&plus;B)" title="I=\frac{1}{3}(R+G+B)" /></a>
+</p>
+<p align="center">
+<a href="https://www.codecogs.com/eqnedit.php?latex=S=1-\frac{3}{R&plus;G&plus;B}[min(R,G,B)]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?S=1-\frac{3}{R&plus;G&plus;B}[min(R,G,B)]" title="S=1-\frac{3}{R+G+B}[min(R,G,B)]" /></a>
+</p>
+<p align="center">
+<a href="https://www.codecogs.com/eqnedit.php?latex=H=\begin{cases}&space;\theta&space;&&space;B\leqslant&space;G&space;\\&space;360^{\circ}-\theta&space;&&space;B>&space;G&space;\end{cases}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?H=\begin{cases}&space;\theta&space;&&space;B\leqslant&space;G&space;\\&space;360^{\circ}-\theta&space;&&space;B>&space;G&space;\end{cases}" title="H=\begin{cases} \theta & B\leqslant G \\ 360^{\circ}-\theta & B> G \end{cases}" /></a>
+</p>
 式中
-$$
-\theta=arccos\left \{ \frac{\frac{1}{2}[(R-G)+(R-B)]}{[(R-G)^2+(R-B)(G-B)]^\frac{1}{2}} \right \}
-$$
+<p align="center">
+<a href="https://www.codecogs.com/eqnedit.php?latex=\theta=arccos\left&space;\{&space;\frac{\frac{1}{2}[(R-G)&plus;(R-B)]}{[(R-G)^2&plus;(R-B)(G-B)]^\frac{1}{2}}&space;\right&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\theta=arccos\left&space;\{&space;\frac{\frac{1}{2}[(R-G)&plus;(R-B)]}{[(R-G)^2&plus;(R-B)(G-B)]^\frac{1}{2}}&space;\right&space;\}" title="\theta=arccos\left \{ \frac{\frac{1}{2}[(R-G)+(R-B)]}{[(R-G)^2+(R-B)(G-B)]^\frac{1}{2}} \right \}" /></a>
+</p>
 
 ```python
 # 参考：https://github.com/SVLaursen/Python-RGB-to-HSI/blob/master/converter.py
