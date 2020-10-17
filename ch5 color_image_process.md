@@ -1,3 +1,97 @@
+# Problems
+Take a color picture, program for it to get following results,
+- Its Red, Green and Blue image respectively
+- Its Hue, Saturation and Intensity image respectively
+- Do pseudo-color image processing(assign different colors for different gray levels)
+- Detect all adges in the color picture
+
+## R,G,B通道
+```python
+img = plt.imread('images/Fig0646(a)(lenna_original_RGB).tif')
+
+r = img[:,:,0]
+g = img[:,:,1]
+b = img[:,:,2]
+```
+
+## H,S,I通道
+$$
+I=\frac{1}{3}(R+G+B)
+$$
+$$
+S=1-\frac{3}{R+G+B}[min(R,G,B)]
+$$
+$$
+H=\begin{cases}
+ \theta &  B\leqslant G \\ 
+ 360^{\circ}-\theta & B> G 
+\end{cases}
+$$
+式中
+$$
+\theta=arccos\left \{ \frac{\frac{1}{2}[(R-G)+(R-B)]}{[(R-G)^2+(R-B)(G-B)]^\frac{1}{2}} \right \}
+$$
+```python
+# 参考：https://github.com/SVLaursen/Python-RGB-to-HSI/blob/master/converter.py
+#Calculate Intensity
+def calc_intensity(red, blue, green):
+    return np.divide(blue + green + red, 3)
+
+#Calculate Saturation
+def calc_saturation(red, blue, green):
+    minimum = np.minimum(np.minimum(red, green), blue)
+    saturation = 1 - (3 / (red + green + blue + 0.001) * minimum)
+
+    return saturation
+
+#Calculate Hue
+def calc_hue(red, blue, green):
+    with np.errstate(divide='ignore', invalid='ignore'):
+        hue = np.copy(red)
+        for i in range(0, blue.shape[0]):
+            for j in range(0, blue.shape[1]):
+                hue[i][j] = 0.5 * ((red[i][j] - green[i][j]) + (red[i][j] - blue[i][j])) / \
+                            math.sqrt((red[i][j] - green[i][j])**2 +
+                                    ((red[i][j] - blue[i][j]) * (green[i][j] - blue[i][j]))+1e-8)
+                
+                hue[i][j] = math.acos(hue[i][j])
+               
+                if blue[i][j] <= green[i][j]:
+                    hue[i][j] = hue[i][j]
+                else:
+                    hue[i][j] = ((360 * math.pi) / 180.0) - hue[i][j]
+                
+                
+
+        return hue
+img = plt.imread('images/Fig0646(a)(lenna_original_RGB).tif')
+# 注意计算前须归一化到[0-1]
+r = img[:,:,0].astype('float')/255.
+g = img[:,:,1].astype('float')/255.
+b = img[:,:,2].astype('float')/255.
+
+h,s,i = calc_hue(r,b,g),calc_saturation(r,b,g),calc_intensity(r,b,g)
+h = h/((360 * math.pi) / 180.0) # 最后的h需要除360度，其余的s,i已经在[0-1]之内
+
+# Display results
+display = [img, h, s, i]
+label = ['Original Image', 'Hue Channel Image', 'Saturation Channel Image', 'Intensity Channel Image']
+
+fig = plt.figure(figsize=(12, 10))
+
+for i in range(len(display)):
+    fig.add_subplot(2, 2, i+1)
+    if i>0:
+        plt.imshow(display[i],'gray')
+    else:
+         plt.imshow(display[i])
+    plt.title(label[i])
+
+plt.show()
+```
+<p align="center">
+  <img src="images/hsi_result.png">
+</p>
 ## 伪彩色映射
 在RGB彩色空间中表示一副单色图像且对结果分量分别映射时，变换结果是一副伪彩色图像。其方程形式为：
 $$s_i=T_i(r),i=1,2,...,n$$
@@ -74,7 +168,6 @@ plt.imshow(pseudo_rgb)
 ```python
 def conv2d(img, kernel):  
     m, n = kernel.shape
-    print(img.shape)
     if (m == n):
         border = (m-1)//2
         # replicate 应该是先将图片扩大了后，再进行卷积
