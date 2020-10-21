@@ -194,7 +194,7 @@ def my_bicubic_interp(img, output_shape,a):
 <a href="https://www.codecogs.com/eqnedit.php?latex=f(x,y)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(x,y)" title="f(x,y)" /></a>为无噪声的理想图片，<a href="https://www.codecogs.com/eqnedit.php?latex=\eta(x,y)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\eta(x,y)" title="\eta(x,y)" /></a>为噪声。并且噪声是假设具有零均值、互不依赖的变量。
 
 假设我们对同一处景象获取到了一系列带有噪声的图片<a href="https://www.codecogs.com/eqnedit.php?latex=g_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?g_i" title="g_i" /></a>，我们计算这些图片的平均值：
-<p align="cener">
+<p align="center">
 <a href="https://www.codecogs.com/eqnedit.php?latex=\bar{g}(x,y)=\frac{1}{M}\sum_{M}^{i=1}g_i(x,y)=\frac{1}{M}\sum_{M}^{i=1}[f(x,y)&plus;\eta_i(x,y)]=f(x,y)&plus;\frac{1}{M}\sum_{M}^{i=1}\eta_i(x,y)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\bar{g}(x,y)=\frac{1}{M}\sum_{M}^{i=1}g_i(x,y)=\frac{1}{M}\sum_{M}^{i=1}[f(x,y)&plus;\eta_i(x,y)]=f(x,y)&plus;\frac{1}{M}\sum_{M}^{i=1}\eta_i(x,y)" title="\bar{g}(x,y)=\frac{1}{M}\sum_{M}^{i=1}g_i(x,y)=\frac{1}{M}\sum_{M}^{i=1}[f(x,y)+\eta_i(x,y)]=f(x,y)+\frac{1}{M}\sum_{M}^{i=1}\eta_i(x,y)" /></a>
 </p>
 当M趋近于无穷大时：
